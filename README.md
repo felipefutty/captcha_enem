@@ -33,3 +33,7 @@ Para rodar cada um dos testes com as bases diferentes:
 	```
 	python entire_captcha_code/captcha_load_test.py
 	```
+
+# Referencia
+
+Foi modificado a implementacao do [ github scnuhealthy](https://github.com/scnuhealthy/cnn_keras_captcha)
