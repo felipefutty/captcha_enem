@@ -26,7 +26,7 @@ from sklearn.decomposition import PCA
 
 
 
-df = pd.read_csv("dataset-joined.csv", header = -1)
+df = pd.read_csv("../dataset-joined.csv", header = -1)
 
 allstr = ''
 sizedic = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0, 9:0}
