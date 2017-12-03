@@ -32,6 +32,8 @@ def get_max(array):
         if array[i] == max_num:
             return i
 
+
+
 def get_text(array):
     text = []
     max_num = max(array)
@@ -82,10 +84,10 @@ def load_data(tol_num,train_num):
     data = np.empty((tol_num, 1, height, width),dtype="float32")
     label = np.empty((tol_num,Y_LEN),dtype="uint8")
 
-    df = pd.read_csv("/Users/feliperodrigues/Documents/Git/MC886/Final/captcha_enem/dataset-joined.csv", header=-1)
+    df = pd.read_csv("../dataset-joined.csv", header=-1)
     i = 0
     for v in df.values:
-        img = get_image_from_file('/Users/feliperodrigues/Documents/Git/MC886/Final/captcha_enem/captcha-joined/{}.png'.format(v[0]))
+        img = get_image_from_file('../captcha-joined/{}.png'.format(v[0]))
         arr = np.asarray(img, dtype="float32")
         try:
             data[i, :, :, :] = arr
@@ -115,28 +117,11 @@ def load_data_test(tol_num, train_num):
     data = np.empty((tol_num, 1, height, width), dtype="float32")
     label = np.empty((tol_num, Y_LEN), dtype="uint8")
 
-    '''
-    # data dir
-    imgs = os.listdir("data")
-
-    for i in range(tol_num):
-        # load the images and convert them into gray images
-        img = get_image_from_file("data/"+imgs[i])
-
-        arr = np.asarray(img,dtype="float32")
-        try:
-            data[i,:,:,:] = arr
-            captcha_text = imgs[i].split('.')[0].split('_')[1]
-            label[i]= text2vec(captcha_text)
-        except:
-            pass
-    '''
-
-    df = pd.read_csv("/Users/feliperodrigues/Documents/Git/MC886/Final/anticaptcha-php/dataset-test.csv", header=-1)
+    df = pd.read_csv("../dataset-test.csv", header=-1)
     i = 0
     for v in df.values:
         img = get_image_from_file(
-            '/Users/feliperodrigues/Documents/Git/MC886/Final/anticaptcha-php/captcha-test/{}.png'.format(v[0]))
+            '../captcha-test/{}.png'.format(v[0]))
         arr = np.asarray(img, dtype="float32")
         try:
             data[i, :, :, :] = arr
